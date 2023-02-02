@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOTTIE</title>
+    <!--საიტის აიქონს ამატებს ბრაუზერში-->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png"
+    />
+    <link rel="stylesheet" href="static/css/chat.css" />
+    <link rel="stylesheet" href="static/css/home.css" />
+    <!-- css ის ბიბლიოთეკაა სადაც უამრავი აიქონი ინახება და ჩატისთვის იდეაური გამოსაყენებელია--->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="pic" class="picture"></div>
+      <div class="description">
+        <p>მე ვარ Bottie</p>
+        <p>ჯერჯერობით მხოლოდ რამდენიმე ფრაზა ვიცი</p>
+        <p>ამიტომ არ გაბრაზდე, თუ რამეს ვერ გავიგებ</p>
+        <p>იცოდე, #წერექართულად</p>
+      </div>
+    </div>
+    <!--ამ ერთ დიდ div ში იქნება ყველაფერი, რაც გვინდა რომ იკეცებოდეს-->
+    <div class="collapsible-chatBar">
+      <button id="chat-button" type="button" class="collapsible">
+        მომწერე როცა დაგჭირდები!
+        <i
+          id="chatting-icon"
+          style="color: rgb(33, 30, 68)"
+          class="fa fa-commenting"
+          aria-hidden="true"
+        ></i>
+      </button>
+      <div class="content-closed">
+        <div class="chat-block-full">
+          <!--აქ კონროლდება ჩატის ბლოკი, ანუ ის ველი სადაც მესიჯები გაჩნდება-->
+          <div class="outer-container">
+            <div class="chat-container">
+              <div id="chatBox">
+                <!--ყოველ შესვლაზე რომ დრო აჩვენოს-->
+                <div class="timestampdiv">
+                  <h5 id="timestamp"></h5>
+                </div>
+                <p id="botStarterMessage" class="botText">
+                  <span>Have no fear, slay bottie is here...</span>
+                </p>
+              </div>
+              <!--input შეგვყავს აქ-->
+              <div class="chat-bar-input-block">
+                <div id="UsrInput">
+                  <input
+                    id="inputTxt"
+                    type="text"
+                    class="input-box"
+                    name="msg"
+                    placeholder="დააჭირე თვითმფრინავს ჩემთან მოსაწერად"
+                  />
+                  <p></p>
+                </div>
+
+                <div class="chat-bar-icons">
+                  <i
+                    id="love-icon"
+                    style="color: rgb(244, 38, 69)"
+                    class="fa fa-heart"
+                    aria-hidden="true"
+                    onclick="sendHeartButton()"
+                  ></i>
+                  <i
+                    id="send-icon"
+                    style="color: black"
+                    class="fa fa-paper-plane-o"
+                    aria-hidden="true"
+                    onclick="clickSendButton()"
+                  ></i>
+                </div>
+              </div>
+              <!--ქვევით აბზაცს ტოვებს ცარიელს-->
+              <div id="chat-bar-bottom">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!--JQuery ს ბიბლიოთეკას ლინკავს-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="static/scripts/responses.js"></script>
+  <script src="static/scripts/chat.js"></script>
+</html>

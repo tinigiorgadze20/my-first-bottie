@@ -1,0 +1,225 @@
+/*ეს ბლოკი მთლიანად ჩატს ეხება. ჩატის ფანჯარა უნდა იყოს ფიქსირებული ზედა მარჯვენა კუთხეში*/
+.collapsible-chatBar {
+  position: fixed;
+  top: 0;
+  right: 50px;
+  box-shadow: 0 8px 16px 0 palevioletred;
+}
+
+/*collapsible იყო ღილაკის კლასი, ანუ ეს ბლოკი ღილაკს ეხება*/
+.collapsible {
+  background-color: rgb(251, 192, 236);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 18px;
+  width: 350px;
+  text-align: center;
+  outline: black;
+  font-size: 20px;
+  border-radius: 10px 10px 0px 0px;
+  border: 3px solid rgb(300, 230, 260);
+  border-bottom: gold;
+}
+
+/*მომდევნო ორი ბლოკის იდეა არის აღწეროს სიტუაცია ბრაუზერში ღილაკის დაჭერამდე და დაჭერის შემდეგ*/
+.content-closed {
+  max-height: 0; /*თავიდან სიმაღლე 0 გვინდა, ჩაკეცილის ეფექტი რომ ჰქონდეს*/
+  overflow: hidden; /*საიტზე არ გვინდა გამოჩნდეს ის კონტენტი, რაც div ის საზღვრებში არ ჩაეტევა*/
+  transition: max-height 0.2s ease-out;
+  background-color: none;
+}
+
+.chat-block-full {
+  width: 350px;
+  background-image: url(https://as2.ftcdn.net/v2/jpg/01/68/74/87/1000_F_168748763_Mdv7zO7dxuECMzItERhPzWhVJSaORTKd.jpg);
+  text-align: center;
+  overflow: auto;
+  scrollbar-width: none;
+  height: max-content;
+  transition: max-height 0.2s ease-out;
+}
+
+.outer-container {
+  min-height: 500px; /*აუცილებელია მინიმალური სიმაღლის დაფიქსირება, თორემ რამდენი მესიჯიც იგზავნება იმსიმაღლე იქნება*/
+  bottom: 0%;
+  position: relative;
+}
+
+.chat-container {
+  max-height: 500px; /*ასევე აუცილებელია მაქაიმალური სიმაღლის დაფიქსირება, რათა სქროლვის დროს სიმაღლეში არ გაიზარდოს*/
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  scroll-behavior: smooth;
+  hyphens: auto;
+}
+/*როცა ავსქროლავთ კონტენტი გარეთ რომ არ გადმოვიდეს*/
+.chat-container::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-bar-input-block {
+  display: flex;
+  float: left;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  background-color: rgb(250, 224, 243);
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px 0px 10px 10px;
+}
+
+.chat-bar-icons {
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  width: 25%;
+  float: right;
+  font-size: 20px;
+}
+
+#love-icon:hover {
+  opacity: 0.7;
+}
+#send-icon:hover {
+  opacity: 0.7;
+}
+
+.timestampdiv {
+  float: center;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 248, 248, 0.6);
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+/* Chat bubbles */
+
+#usrInput {
+  width: 75%;
+}
+
+.input-box {
+  float: left;
+  border: none;
+  box-sizing: border-box;
+  width: 250px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 11px;
+  color: #000;
+  background-color: white;
+  outline: none;
+}
+
+.userText {
+  color: white;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: right;
+  clear: both;
+}
+
+.userText span {
+  line-height: 1.5em;
+  display: inline-block;
+  background: rgb(251, 192, 236);
+  padding: 10px;
+  border-radius: 8px;
+  border-bottom-right-radius: 2px;
+  max-width: 80%;
+  margin-right: 10px;
+  animation: floatup 0.5s forwards;
+}
+
+.botText {
+  color: #000;
+  font-family: Helvetica;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: left;
+}
+
+.botText span {
+  line-height: 1.5em;
+  display: inline-block;
+  background: #e0b4ea;
+  padding: 10px;
+  border-radius: 8px;
+  border-bottom-left-radius: 2px;
+  max-width: 80%;
+  margin-left: 10px;
+  animation: floatup 0.5s forwards;
+}
+
+@keyframes floatup {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .full-chat-block {
+    width: 100%;
+    border-radius: 0px;
+  }
+  .chat-bar-collapsible {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+  .collapsible {
+    width: 100%;
+    border: 0px;
+    border-top: 3px solid white;
+    border-radius: 0px;
+  }
+}
+
+.container {
+  border-radius: 20px;
+  overflow: hidden;
+  position: fixed;
+  color: pink;
+  height: 500px;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 80px;
+  left: 50px;
+  box-shadow: 0 8px 16px 0 palevioletred;
+}
+
+.picture {
+  border-radius: 30px;
+  position: fixed;
+  height: 250px;
+  width: 250px;
+  object-fit: contain;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(https://i.pinimg.com/564x/21/2e/5f/212e5f17978df344781061ab9f89b36d.jpg);
+  opacity: 100%;
+  top: 110px;
+  left: 175px;
+  box-shadow: 0 8px 16px 0 rgb(51, 6, 21);
+}
+
+.description {
+  overflow: hidden;
+  position: fixed;
+  color: rgb(232, 192, 221);
+  height: 300px;
+  width: 300px;
+  top: 370px;
+  left: 175px;
+}
